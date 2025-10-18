@@ -1,2 +1,2 @@
 config SHIELD_FIGPAD
-    def_bool $(shields_list_contains, mmacro)
+    def_bool $(shields_list_contains, FigPad)
