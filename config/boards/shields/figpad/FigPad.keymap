@@ -17,7 +17,7 @@
 
         default_layer {
             bindings = <
-                &kp LC(LS(O))  &kp LC(LS(M))      &kp LA(KP_N8)  &kp LA(KP_N9)
+                &kp LC(LS(O))  &kp LC(LS(M))      &kp LA(N8)  &kp LA(N9)
                 &kp LC(LA(K))  &kp LC(LA(LS(K)))  &kp LS(LA(V))        &kp LS(LA(H))
                 &kp LC(LA(B))  &kp LS(SPACE)
             >;
