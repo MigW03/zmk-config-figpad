@@ -1,6 +1,5 @@
 if SHIELD_FIGPAD
 
-config ZMK_KEYBOARD_NAME
-    default "FigPad"
+CONFIG_ZMK_KEYBOARD_NAME="FigPad"
 
 endif
