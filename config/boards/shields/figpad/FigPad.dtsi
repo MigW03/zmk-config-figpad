@@ -4,7 +4,7 @@
     physical_layout0: physical_layout_0 {
         compatible = "zmk,physical-layout";
         display-name = "FigPad";
-
+        transform = <0>;
         kscan = <&kscan>;
 
         keys  //                     w   h    x    y     rot    rx    ry
