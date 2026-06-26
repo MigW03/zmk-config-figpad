@@ -35,7 +35,7 @@
             bindings = <
                 &kp LG(LBKT)  &kp LG(LS(N5))       &trans  &trans
                 &kp C_PREV    &kp C_NEXT   &trans  &trans
-                &kp C_PP                   ß&trans
+                &kp C_PP                   &trans
             >;
         };
     };
