@@ -7,9 +7,8 @@
         compatible = "zmk,combos";
 
         layer {
-            bindings = <&sl 1>;
+            bindings = <&sl 2>;
             key-positions = <0 1>;
-            layers = <0 2>;
         };
     };
 
@@ -18,26 +17,27 @@
 
         default_layer {
             bindings = <
-                &kp LA(LEFT)  &kp LG(LS(S))      &kp LA(N8)    &kp LA(N9)
+                &kp LG(LS(S))   &kp LA(LEFT)      &kp LA(N8)    &kp LA(N9)
                 &kp C_PREV  &kp C_NEXT            &kp LS(LA(V)) &kp LS(LA(H))
                 &kp C_PP                          &kp LS(SPACE)
+            >;
+        };
+        
+        mac_layer {
+            bindings = <
+                &kp LG(LS(N5))  &kp LG(LBKT)       &trans  &trans
+                &kp C_PREV    &kp C_NEXT   &trans  &trans
+                &kp C_PP                   &trans
             >;
         };
 
         bt_layer {
             bindings = <
-                &to 0         &to 2        &studio_unlock  &bootloader
+                &to 1         &to 0        &studio_unlock  &bootloader
                 &bt BT_SEL 0  &bt BT_SEL 1  &trans  &trans
                 &bt BT_SEL 2                &bt BT_CLR
             >;
         };
 
-        mac_layer {
-            bindings = <
-                &kp LG(LBKT)  &kp LG(LS(N5))       &trans  &trans
-                &kp C_PREV    &kp C_NEXT   &trans  &trans
-                &kp C_PP                   &trans
-            >;
-        };
     };
 };
