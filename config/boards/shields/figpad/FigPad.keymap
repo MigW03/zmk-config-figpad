@@ -17,22 +17,26 @@
 
         default_layer {
             bindings = <
-                &kp LC(LS(O))  &kp LC(LS(M))      &kp LA(N8)  &kp LA(N9)
-                &kp LC(LA(K))  &kp LC(LA(LS(K)))  &kp LS(LA(V))        &kp LS(LA(H))
-                &kp LC(LA(B))  &kp LS(SPACE)
+                &kp LA(LEFT)  &kp LG(LS(S))      &kp LA(N8)    &kp LA(N9)
+                &kp C_PREV  &kp C_NEXT            &kp LS(LA(V)) &kp LS(LA(H))
+                &kp C_PP                          &kp LS(SPACE)
             >;
         };
 
         bt_layer {
             bindings = <
-                &trans        &trans        &studio_unlock  &bootloader
+                &to 0         &to 2        &studio_unlock  &bootloader
                 &bt BT_SEL 0  &bt BT_SEL 1  &trans  &trans
-                &bt BT_SEL 2  &bt BT_CLR
+                &bt BT_SEL 2                &bt BT_CLR
             >;
         };
 
-        extra1 {
-            status = "reserved";
+        mac_layer {
+            bindings = <
+                &kp LG(LBKT)  &kp LG(LS(N5))       &trans  &trans
+                &kp C_PREV    &kp C_NEXT   &trans  &trans
+                &kp C_PP                   ß&trans
+            >;
         };
     };
 };
