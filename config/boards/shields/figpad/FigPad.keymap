@@ -2,13 +2,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
-#define DEFAULT 0
-#define FIGMA   1
-#define DARKTABLE   2
-#define EXTRA 3
-#define APPS 4
-#define BLUETOOTH 5
-
 / {
     behaviors {
         tdplay: tap_dance_music {
@@ -22,11 +15,11 @@
         compatible = "zmk,combos";
 
         combo_apps {
-            bindings = <&sl APPS>;
+            bindings = <&sl 2>;
             key-positions = <0 1>;
         };
         combo_bluetooth {
-            bindings = <&sl BLUETOOTH>;
+            bindings = <&sl 3>;
             key-positions = <8 9>;
         };
     };
@@ -37,11 +30,11 @@
         default_layer {
             bindings = <
                 &kp LG(LBKT)   &kp LG(LS(S))      &trans    &trans
-                &kp C_VOLUME_DOWN  &kp C_VOL_UP            &trans &trans
+                &kp C_VOL_DN  &kp C_VOL_UP            &trans &trans
                 &tdplay                         &trans
             >;
         };
-        
+
         figma {
             bindings = <
                 &kp LG(LBKT)   &kp LG(LS(S))       &kp LA(N8)  &kp LA(N9)
@@ -50,27 +43,35 @@
             >;
         };
 
-        darktable {
-            status = "reserved";
-        };
-
-        extra1 {
-            status = "reserved";
-        };
-
         app_layer {
             bindings = <
-                &trans &trans &to DEFAULT &to FIGMA
-                &trans &trans &to DARKTABLE &to EXTRA
+                &trans &trans &to 0 &to 1
+                &trans &trans &to 4 &to 5
                 &trans &trans
             >;
         };
 
         bt_layer {
             bindings = <
-                &to DEFAULT         &to DEFAULT       &studio_unlock  &bootloader
+                &to 0         &to 0       &studio_unlock  &bootloader
                 &bt BT_SEL 0  &bt BT_SEL 1  &trans  &trans
                 &bt BT_SEL 2                &bt BT_CLR
+            >;
+        };
+
+        darktable {
+            bindings = <
+                &kp LG(LBKT)   &kp LG(LS(S))      &trans    &trans
+                &kp C_VOL_DN  &kp C_VOL_UP            &trans &trans
+                &tdplay                         &trans
+            >;
+        };
+
+        extra1 {
+            bindings = <
+                &kp LG(LBKT)   &kp LG(LS(S))      &trans    &trans
+                &kp C_VOL_DN  &kp C_VOL_UP            &trans &trans
+                &tdplay                         &trans
             >;
         };
 
