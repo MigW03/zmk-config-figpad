@@ -37,7 +37,7 @@
         default_layer {
             bindings = <
                 &kp LG(LBKT)   &kp LG(LS(S))      &trans    &trans
-                &kp C_VOL_DOWN  &kp C_VOL_UP            &trans &trans
+                &kp C_VOLUME_DOWN  &kp C_VOL_UP            &trans &trans
                 &tdplay                         &trans
             >;
         };
@@ -45,7 +45,7 @@
         figma {
             bindings = <
                 &kp LG(LBKT)   &kp LG(LS(S))       &kp LA(N8)  &kp LA(N9)
-                &kp C_VOL_DOWN  &kp C_VOL_UP   &trans  &trans
+                &kp C_VOL_DN  &kp C_VOL_UP   &trans  &trans
                 &tdplay                   &kp LS(SPACE)
             >;
         };
