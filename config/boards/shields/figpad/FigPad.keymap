@@ -2,13 +2,32 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
+#define DEFAULT 0
+#define FIGMA   1
+#define DARKTABLE   2
+#define EXTRA 3
+#define APPS 4
+#define BLUETOOTH 5
+
 / {
+    behaviors {
+        tdplay: tap_dance_music {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp C_PP>, <&kp C_NEXT>, <&kp C_PREV>;
+        };
+    };
     combos {
         compatible = "zmk,combos";
 
-        layer {
-            bindings = <&sl 2>;
+        combo_apps {
+            bindings = <&sl APPS>;
             key-positions = <0 1>;
+        };
+        combo_bluetooth {
+            bindings = <&sl BLUETOOTH>;
+            key-positions = <8 9>;
         };
     };
 
@@ -17,23 +36,39 @@
 
         default_layer {
             bindings = <
-                &kp LG(LS(S))   &kp LA(LEFT)      &kp LA(N8)    &kp LA(N9)
-                &kp C_PREV  &kp C_NEXT            &kp LS(LA(V)) &kp LS(LA(H))
-                &kp C_PP                          &kp LS(SPACE)
+                &kp LG(LBKT)   &kp LG(LS(S))      &trans    &trans
+                &kp C_VOL_DOWN  &kp C_VOL_UP            &trans &trans
+                &tdplay                         &trans
             >;
         };
         
-        mac_layer {
+        figma {
             bindings = <
-                &kp LG(LS(N5))  &kp LG(LBKT)       &trans  &trans
-                &kp C_PREV    &kp C_NEXT   &trans  &trans
-                &kp C_PP                   &trans
+                &kp LG(LBKT)   &kp LG(LS(S))       &kp LA(N8)  &kp LA(N9)
+                &kp C_VOL_DOWN  &kp C_VOL_UP   &trans  &trans
+                &tdplay                   &kp LS(SPACE)
+            >;
+        };
+
+        darktable {
+            status = "reserved";
+        };
+
+        extra1 {
+            status = "reserved";
+        };
+
+        app_layer {
+            bindings = <
+                &trans &trans &to DEFAULT &to FIGMA
+                &trans &trans &to DARKTABLE &to EXTRA
+                &trans &trans
             >;
         };
 
         bt_layer {
             bindings = <
-                &to 1         &to 0        &studio_unlock  &bootloader
+                &to DEFAULT         &to DEFAULT       &studio_unlock  &bootloader
                 &bt BT_SEL 0  &bt BT_SEL 1  &trans  &trans
                 &bt BT_SEL 2                &bt BT_CLR
             >;
